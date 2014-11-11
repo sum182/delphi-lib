@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReplaceCompMapping>
+  <MapGroup Name="Borland VCL">
+    <MapItem>
+      <SourceClassName>TEdit</SourceClassName>
+      <DestClassName>TMemo</DestClassName>
+      <SourcePropName>Text</SourcePropName>
+      <DestPropName>Lines</DestPropName>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TStringGrid</SourceClassName>
+      <DestClassName>TListView</DestClassName>
+      <SourcePropName />
+      <DestPropName>ViewStyle</DestPropName>
+      <BiDirEnabled>false</BiDirEnabled>
+      <UseConstValue>true</UseConstValue>
+      <ConstValue>vsReport</ConstValue>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TGroupBox</SourceClassName>
+      <DestClassName>TPanel</DestClassName>
+      <SourcePropName />
+      <DestPropName>Caption</DestPropName>
+      <BiDirEnabled>false</BiDirEnabled>
+      <UseConstValue>true</UseConstValue>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TDBText</SourceClassName>
+      <DestClassName>TDBEdit</DestClassName>
+      <SourcePropName />
+      <DestPropName>BorderStyle</DestPropName>
+      <BiDirEnabled>false</BiDirEnabled>
+      <UseConstValue>true</UseConstValue>
+      <ConstValue>bsNone</ConstValue>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TDBText</SourceClassName>
+      <DestClassName>TDBEdit</DestClassName>
+      <SourcePropName />
+      <DestPropName>ReadOnly</DestPropName>
+      <BiDirEnabled>false</BiDirEnabled>
+      <UseConstValue>true</UseConstValue>
+      <ConstValue>True</ConstValue>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TDBText</SourceClassName>
+      <DestClassName>TDBEdit</DestClassName>
+      <SourcePropName />
+      <DestPropName>TabStop</DestPropName>
+      <BiDirEnabled>false</BiDirEnabled>
+      <UseConstValue>true</UseConstValue>
+      <ConstValue>False</ConstValue>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TDBEdit</SourceClassName>
+      <DestClassName>TcxDBTextEdit</DestClassName>
+      <SourcePropName>DataSource</SourcePropName>
+      <DestPropName>DataBinding.DataSource</DestPropName>
+    </MapItem>
+    <MapItem>
+      <SourceClassName>TDBEdit</SourceClassName>
+      <DestClassName>TcxDBTextEdit</DestClassName>
+      <SourcePropName>DataField</SourcePropName>
+      <DestPropName>DataBinding.DataField</DestPropName>
+    </MapItem>
+  </MapGroup>
+</ReplaceCompMapping>

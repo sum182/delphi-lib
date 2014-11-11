@@ -1,0 +1,59 @@
+package PackLibComponentes;
+
+{$R *.res}
+{$R 'UnitfrmLogin.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'TDS'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  vcldb,
+  dbrtl,
+  dsnap,
+  designide,
+  xmlrtl,
+  vclactnband,
+  vclx,
+  bdertl;
+
+contains
+  UnitTopPanel in 'UnitTopPanel.pas',
+  UnitNoCapPanel in 'UnitNoCapPanel.pas',
+  UnitHiperLabel in 'UnitHiperLabel.pas',
+  UnitMascFem in 'UnitMascFem.pas',
+  UnitColorEdit in 'UnitColorEdit.pas',
+  UnitColorGrid in 'UnitColorGrid.pas',
+  UnitDbBitBtn in 'UnitDbBitBtn.pas',
+  UnitMFIvent in 'UnitMFIvent.pas',
+  UnitMaskConfig in 'UnitMaskConfig.pas',
+  UnitEditAlign in 'UnitEditAlign.pas',
+  UnitXmlExport in 'UnitXmlExport.pas',
+  UnitEditorExports in 'UnitEditorExports.pas',
+  UExportCompEditor in 'UExportCompEditor.pas',
+  UnitMegaFilter in 'UnitMegaFilter.pas',
+  UnitTDbDateTimePicker in 'UnitTDbDateTimePicker.pas',
+  UnitfrmLogin in 'UnitfrmLogin.pas';
+
+end.

@@ -1,0 +1,7 @@
+Diretório 
+https://sum182-componentes.googlecode.com/svn/trunk
+
+
+
+Read Only
+http://sum182-componentes.googlecode.com/svn/trunk/ sum182-componentes-read-only

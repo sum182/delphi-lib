@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/10/15 15:23:19.000.158,C:\Componentes\Sum182\D14\Sum182RBuilderD11.dproj=C:\Componentes\Sum182\D14\Sum182RBuilderD14.dproj</Transaction>
+    <Transaction>2014/10/15 15:57:01.000.155,C:\Componentes\Sum182\D14\Sum182RBuilderD14.dproj=C:\Componentes\Sum182\D14\Sum182RBuilderD141.dproj</Transaction>
+    <Transaction>2014/10/15 15:57:13.000.015,C:\Componentes\Sum182\D14\Sum182RBuilderD141.dproj=C:\Componentes\Sum182\D14\Sum182RBuilderD14.dproj</Transaction>
+    <Transaction>2014/10/15 16:15:47.000.982,=rbDB1520.dcp</Transaction>
+    <Transaction>2014/10/15 16:15:47.000.959,=rbRCL1520.dcp</Transaction>
+    <Transaction>2014/10/15 16:15:47.000.971,=rbRTL1520.dcp</Transaction>
+    <Transaction>2014/10/15 16:15:47.000.947,=vclimg.dcp</Transaction>
+    <Transaction>2014/11/11 17:26:10.000.151,C:\Componentes\sum182\D15\Sum182RBuilderD14.dproj=C:\Componentes\sum182\D15\Sum182RBuilderD15.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

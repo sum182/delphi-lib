@@ -1,0 +1,59 @@
+package Sum182IBOD15;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Sum182 IBO - D11'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  dsnap,
+  vcldb,
+  dbexpress,
+  IBO40XRT_D2006,
+  IBO40CRT_D2006,
+  vclx,
+  Sum182D11,
+  IndyProtocols,
+  IndyCore,
+  IndySystem,
+  XFormat9,
+  VclSmp,
+  vcljpg,
+  XDevice9,
+  rbRCL10105,
+  bdertl,
+  vclactnband,
+  designide,
+  xmlrtl,
+  rbDB10105,
+  adortl;
+
+contains
+  smIBO in 'Units\smIBO.pas';
+
+end.

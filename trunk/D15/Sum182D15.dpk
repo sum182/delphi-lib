@@ -1,0 +1,74 @@
+package Sum182D15;
+
+{$R *.res}
+{$R 'smCadPadrao.dcr'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Sum182 Componentes - D14'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  vcldb,
+  dbrtl,
+  dsnap,
+  dbexpress,
+  adortl,
+  vclx,
+  IndyCore,
+  IndySystem,
+  IndyProtocols,
+  designide,
+  xmlrtl,
+  vclactnband,
+  FireDACCommon,
+  FireDAC,
+  FireDACCommonDriver;
+
+contains
+  smGeral in 'Units\smGeral.pas',
+  smButton in 'smButton.pas',
+  smDBGrid in 'smDBGrid.pas',
+  smMensagens in 'Units\smMensagens.pas',
+  smExceptions in 'Units\smExceptions.pas',
+  smResourceString in 'Units\smResourceString.pas',
+  smStrings in 'Units\smStrings.pas',
+  smBuscaCep in 'Units\smBuscaCep.pas',
+  smDB in 'Units\smDB.pas',
+  smDBFireBird in 'Units\smDBFireBird.pas',
+  smSQL in 'Units\smSQL.pas',
+  smDBAdo in 'Units\smDBAdo.pas',
+  smCheckListBox in 'smCheckListBox.pas',
+  smForm in 'Forms\smForm.pas',
+  smDateUtils in 'Units\smDateUtils.pas',
+  smCadPadrao in 'smCadPadrao.pas',
+  smCadPadraoEditor in 'smCadPadraoEditor.pas',
+  smCadChild in 'Forms\smCadChild.pas' {frmCadChild},
+  smModules in 'Units\smModules.pas',
+  smForms in 'Units\smForms.pas',
+  smCad in 'Forms\smCad.pas' {frmCad},
+  smCadFD in 'Forms\smCadFD.pas' {frmCadFD};
+
+end.

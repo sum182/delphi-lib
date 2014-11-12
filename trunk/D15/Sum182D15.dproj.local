@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/10/15 15:14:25.000.692,C:\Componentes\Sum182\D14\Sum182D14.dproj=C:\Componentes\Sum182\D14\Sum182D11.dproj</Transaction>
+    <Transaction>2014/10/15 15:22:50.000.816,=C:\Componentes\Sum182\D14\Forms\smCad.pas</Transaction>
+    <Transaction>2014/10/17 14:36:27.000.883,=FireDACCommon.dcp</Transaction>
+    <Transaction>2014/10/17 14:36:27.000.911,=FireDACCommonDriver.dcp</Transaction>
+    <Transaction>2014/10/17 14:36:27.000.897,=FireDAC.dcp</Transaction>
+    <Transaction>2014/10/17 14:38:24.000.897,=C:\Componentes\Sum182\D14\Forms\smCadFD.pas</Transaction>
+    <Transaction>2014/11/11 17:25:12.000.291,C:\Componentes\sum182\D15\Sum182D14.dproj=C:\Componentes\sum182\D15\Sum182D15.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

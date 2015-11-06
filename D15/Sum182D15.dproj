@@ -115,10 +115,9 @@
         <DCC_HppOutput>$(DCU)</DCC_HppOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <DCC_Description>Sum182 Componentes - D14</DCC_Description>
+        <DCC_Description>Sum182 Componentes - D15</DCC_Description>
         <VerInfo_Release>0</VerInfo_Release>
         <VerInfo_Build>0</VerInfo_Build>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_DcuOutput>..\D15\Library\</DCC_DcuOutput>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_MajorVer>1</VerInfo_MajorVer>

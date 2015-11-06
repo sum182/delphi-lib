@@ -20,7 +20,7 @@ uses
   smGeral, ADoDB, ExtCtrls, SqlExpr, FMTBcd, ImgList, smDBGrid, smDB,
   System.Actions, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls;
 type
   TfrmCadFD = class(TForm)
     ToBaCadastro: TToolBar;
@@ -214,7 +214,10 @@ begin
       Exit;
     Wait(self, 'Deletando Informações');
     sleep(320);
-    tbCadastro.Delete;
+    //tbCadastro.Delete;
+
+     if (tbCadastro is TFDQuery) then
+     (tbCadastro as TFDQuery).Delete;
 
     if (smCadPadrao.DataSourceCadastro.DataSet is TClientDataSet) then
       ApplyUpdates((smCadPadrao.DataSourceCadastro.DataSet as TClientDataSet));

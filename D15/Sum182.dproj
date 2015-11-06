@@ -118,8 +118,7 @@
         <DCC_HppOutput>$(DCU)</DCC_HppOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <DCC_Description>Sum182 Link - D14</DCC_Description>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_Description>Sum182 Link - D15</DCC_Description>
         <DCC_DcuOutput>..\D15\Library\</DCC_DcuOutput>
     </PropertyGroup>
     <ProjectExtensions>

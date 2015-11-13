@@ -79,6 +79,7 @@ type
     dsCad: TDataSource;
     dsBusca: TDataSource;
     fdqBusca: TFDQuery;
+    FDSchemaAdapter: TFDSchemaAdapter;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -109,6 +110,7 @@ type
     procedure AcDeleteExecute(Sender: TObject);
     procedure AcApplyUpdateExecute(Sender: TObject);
     procedure AcLocalizarExecute(Sender: TObject);
+    procedure FDSchemaAdapterAfterApplyUpdate(Sender: TObject);
   private
     { Private declarations }
     procedure GetTable;
@@ -141,6 +143,8 @@ type
     procedure SetBotoes;
     procedure SetToolBarButtonsState(Sender: TObject);
     procedure OpenBuscaSql(sql: string);
+    function UsingSchema:boolean;
+
   end;
 
   //Classe dos Fields da Busca
@@ -175,20 +179,45 @@ implementation
 { TfrmCad }
 
 procedure TfrmCadFD.AcApplyUpdateExecute(Sender: TObject);
+var
+  SchemaAdapter:TFDSchemaAdapter;
+  FDQuery:TFDQuery;
 begin
   inherited;
   try
-    Wait(self, 'Salvando Informações');
-    sleep(520);
-    edFocus.SetFocus;
-    ValidarCampos(tbCadastro);
-    tbCadastro.Post;
+    try
+      Wait(self, 'Salvando Informações');
+      sleep(520);
+      edFocus.SetFocus;
+      ValidarCampos(tbCadastro);
 
-    if (smCadPadrao.DataSourceCadastro.DataSet is TClientDataSet) then
-      ApplyUpdates((smCadPadrao.DataSourceCadastro.DataSet as TClientDataSet));
+      if not(smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
+        tbCadastro.Post;
 
-    AcLocalizarExecute(self);
-  finally
+      if (smCadPadrao.DataSourceCadastro.DataSet is TClientDataSet) then
+        ApplyUpdates((smCadPadrao.DataSourceCadastro.DataSet as TClientDataSet));
+
+      if (smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
+      begin
+        FDQuery:= (smCadPadrao.DataSourceCadastro.DataSet as TFDQuery);
+        FDQuery.Post;
+
+        if FDQuery.SchemaAdapter <> nil then
+        begin
+          SchemaAdapter:= (FDQuery.SchemaAdapter as TFDSchemaAdapter);
+          ApplyUpdates(SchemaAdapter);
+        end;
+      end;
+
+      AcLocalizarExecute(self);
+
+      except on E: Exception do
+        begin
+          Msg('Não foi possível salvar o registro' + #13 + E.Message, mtErro);
+
+        end;
+     end;
+ finally
     WaitEnd(self);
   end;
 end;
@@ -207,22 +236,45 @@ begin
 end;
 
 procedure TfrmCadFD.AcDeleteExecute(Sender: TObject);
+var
+  SchemaAdapter:TFDSchemaAdapter;
+  FDQuery:TFDQuery;
 begin
   inherited;
   try
-    if not (Msg('Deseja Realmente excluir este registro?', mtAviso, Sim_Nao_Cancelar)) then
-      Exit;
-    Wait(self, 'Deletando Informações');
-    sleep(320);
-    //tbCadastro.Delete;
+    try
+      if not (Msg('Deseja realmente excluir este registro?', mtAviso, Sim_Nao_Cancelar)) then
+        Exit;
+      Wait(self, 'Deletando Informações');
+      sleep(320);
 
-     if (tbCadastro is TFDQuery) then
-     (tbCadastro as TFDQuery).Delete;
+      if not(smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
+        tbCadastro.Delete;
 
-    if (smCadPadrao.DataSourceCadastro.DataSet is TClientDataSet) then
-      ApplyUpdates((smCadPadrao.DataSourceCadastro.DataSet as TClientDataSet));
+      if (smCadPadrao.DataSourceCadastro.DataSet is TClientDataSet) then
+        ApplyUpdates((smCadPadrao.DataSourceCadastro.DataSet as TClientDataSet));
 
-    AcLocalizarExecute(self);
+      if (smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
+      begin
+        FDQuery:= (smCadPadrao.DataSourceCadastro.DataSet as TFDQuery);
+        FDQuery.Delete;
+
+        if FDQuery.SchemaAdapter <> nil then
+        begin
+          SchemaAdapter:= (FDQuery.SchemaAdapter as TFDSchemaAdapter);
+          ApplyUpdates(SchemaAdapter);
+        end;
+      end;
+
+      AcLocalizarExecute(self);
+    except on E: Exception do
+        begin
+          Msg('Não foi possível excluir o registro' + #13 + E.Message, mtErro);
+
+        end;
+
+    end;
+
   finally
     WaitEnd(self);
   end;
@@ -276,6 +328,13 @@ begin
       begin
         OpenDataSet(tbCadastro);
         Append;
+
+        if UsingSchema then
+        begin
+          Post;
+          Edit;
+        end;
+
         TaShCadastro.Enabled := True;
         tbCadastro.Fields[0].FocusControl;
       end;
@@ -541,6 +600,20 @@ procedure TfrmCadFD.EdConteudoTextoKeyPress(Sender: TObject; var Key: Char);
 begin
   inherited;
   OnEnterPesquisa(key);
+end;
+
+procedure TfrmCadFD.FDSchemaAdapterAfterApplyUpdate(Sender: TObject);
+var
+  i: integer;
+  Query:TFDQuery;
+begin
+  for I := 0 to ComponentCount -1 do
+    if (Components[i]) is TFDQuery Then
+    begin
+      Query:= (Components[i]) as TFDQuery;
+      if Query.SchemaAdapter <> Nil then
+        Query.CommitUpdates;
+    end;
 end;
 
 procedure TfrmCadFD.FormActivate(Sender: TObject);
@@ -988,6 +1061,18 @@ begin
   SetToolBarButtonsState(self);
 end;
 
+function TfrmCadFD.UsingSchema: boolean;
+var
+  FDQuery:TFDQuery;
+begin
+   Result:= False;
+   if (smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
+   begin
+     FDQuery:= (smCadPadrao.DataSourceCadastro.DataSet as TFDQuery);
+     Result:= (FDQuery.SchemaAdapter <> nil)
+   end;
+end;
+
 procedure TfrmCadFD.VerificarClassesDataSet(DataSet: TDataSet);
 begin
   with DataSet do
@@ -1094,6 +1179,7 @@ begin
       CamposBusca := CamposBusca + ',' + tabela + '.' + FieldName;
   end;
 end;
+
 
 end.
 

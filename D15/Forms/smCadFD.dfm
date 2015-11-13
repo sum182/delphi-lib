@@ -113,10 +113,6 @@ object frmCadFD: TfrmCadFD
     object TaShConsulta: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grbxPesquisa: TGroupBox
         Left = 0
         Top = 0
@@ -415,18 +411,10 @@ object frmCadFD: TfrmCadFD
     object TaShCadastro: TTabSheet
       Caption = 'Cadastro'
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 15
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object TaShRelatorio: TTabSheet
       Caption = 'Relat'#243'rio'
       TabVisible = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
   end
   object smCadPadrao: TsmCadPadrao
@@ -528,7 +516,7 @@ object frmCadFD: TfrmCadFD
     Left = 752
     Top = 344
     Bitmap = {
-      494C01010B000C00580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010B000C00680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -935,7 +923,7 @@ object frmCadFD: TfrmCadFD
     Left = 752
     Top = 392
     Bitmap = {
-      494C01010B000C00580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010B000C00680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1354,6 +1342,11 @@ object frmCadFD: TfrmCadFD
   end
   object fdqBusca: TFDQuery
     Left = 104
+    Top = 248
+  end
+  object FDSchemaAdapter: TFDSchemaAdapter
+    AfterApplyUpdate = FDSchemaAdapterAfterApplyUpdate
+    Left = 184
     Top = 248
   end
 end

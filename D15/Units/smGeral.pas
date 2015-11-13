@@ -41,6 +41,8 @@ procedure WaitEnd(Formulario: TForm; milliseconds: Cardinal = 0); overload;
 procedure WaitEnd(milliseconds: Cardinal = 0); overload;
 function ApplyUpdates(cds: TClientDataSet): Boolean;overload;
 function ApplyUpdates(fdq: TFDQuery): Boolean;overload;
+function ApplyUpdates(Schema: TFDSchemaAdapter): Boolean;overload;
+
 procedure ToolBarStateButtons(DataSet: TDataSet; btnNew, btnPost, btnCancel, btnEdit, btnDelete: TToolButton);
 procedure ToolBarStateButtonsDetails(DataSetMaster, DatasetDetails: TDataSet; btnNew, btnPost, btnCancel, btnEdit, btnDelete: TToolButton);
 procedure DataSetSetFkDetails(DataSetMaster, DataSetDetails: TDataSet; FieldMaster, FieldDetails: TField);
@@ -309,7 +311,7 @@ end;
 
 function ApplyUpdates(fdq: TFDQuery): Boolean;
 begin
-  //Executa o apply updates do ClientDataSet
+  //Executa o apply updates
   Result := True;
   if (fdq.ApplyUpdates(0) >= 1) then
   begin
@@ -319,6 +321,17 @@ begin
   end;
 end;
 
+function ApplyUpdates(Schema: TFDSchemaAdapter): Boolean;
+begin
+  //Executa o apply updates do TFDSchemaAdapter
+  Result := True;
+  if (Schema.ApplyUpdates(0) >= 1) then
+  begin
+    Msg('Erro no processo de atualização dos dados!', mtErro);
+    Result := False;
+    Exit;
+  end;
+end;
 
 procedure ToolBarStateButtons(DataSet: TDataSet; btnNew, btnPost, btnCancel, btnEdit, btnDelete: TToolButton);
 begin

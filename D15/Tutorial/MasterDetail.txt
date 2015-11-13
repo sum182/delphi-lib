@@ -1,0 +1,33 @@
+
+FireDac MasterDetail
+-----------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=fO99lDwa5Nc
+https://www.youtube.com/watch?v=bsv-U9ywRms
+https://www.youtube.com/watch?v=bO-NfAuREqQ
+
+Para configurar e simples.
+
+No FDQuery Master
+CachedUpdates = True
+SchemaAdapter = Setar um componente
+
+No FDQuery Detail
+CachedUpdates = True
+SchemaAdapter = Setar um componente
+FetchOptions
+  DetailCascate = True
+  Cache
+    FiDetails = True
+
+Salvar
+SchemaAdapter.ApplyUpdates(0);
+
+Evento FDSchemaAdapterAfterApplyUpdate
+Executar o comando Query.CommitUpdates; das querys envolvidas
+-----------------------------------------------------------------------------------------------
+
+
+ClientDataSet Master Detail
+-----------------------------------------------------------------------------------------------
+http://www.edesoft.com.br/artigos/116-chaves-com-cds
+-----------------------------------------------------------------------------------------------

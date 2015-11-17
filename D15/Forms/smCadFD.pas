@@ -426,7 +426,7 @@ var
     end;
 
     //Busca em Campo Inteiro
-    if (Field.FieldType in [ftInteger, ftSmallint]) then
+    if (Field.FieldType in [ftInteger, ftSmallint,ftLargeint]) then
     begin
       ConteudoBusca := EdConteudoNum.Text;
       case ModoBusca of

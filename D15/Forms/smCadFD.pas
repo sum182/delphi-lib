@@ -463,7 +463,7 @@ var
   i: Integer;
 begin
   for i := 0 to smCadPadrao.BuscaCondicoes.Count - 1 do
-    Result := ' ' + Result + ' ' + smCadPadrao.BuscaCondicoes.Strings[i];
+    Result := ' ' + Result + ' ' + smCadPadrao.BuscaCondicoes.Strings[i] + ' ';
 end;
 
 function TfrmCadFD.BuscaGetOrderBy: string;

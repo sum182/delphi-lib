@@ -1,3 +1,13 @@
+{                                                       }
+{                 Sum182 Component Library              }
+{                                                       }
+{  Copyright (c) 2001-2016 Sum182 Software Corporation  }
+{                                                       }
+{                 Tel.:  55 11 98214-7819               }
+{                                                       }
+{                 Email: sum182@gmail.com               }
+{*******************************************************}
+
 unit smCadChild;
 
 interface
@@ -5,7 +15,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, smCad, ImgList, DBActns, ActnList, smCadPadrao, ComCtrls, Grids,
-  DBGrids, smDBGrid, StdCtrls, Buttons, ToolWin;
+  DBGrids, smDBGrid, StdCtrls, Buttons, ToolWin, System.Actions;
 
 type
   TfrmCadChild = class(TfrmCad)

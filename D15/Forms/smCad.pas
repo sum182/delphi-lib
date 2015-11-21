@@ -1,10 +1,9 @@
-﻿{*******************************************************}
-{                                                       }
+﻿{                                                       }
 {                 Sum182 Component Library              }
 {                                                       }
-{  Copyright (c) 2001-2007 Sum182 Software Corporation  }
+{  Copyright (c) 2001-2016 Sum182 Software Corporation  }
 {                                                       }
-{                 Tel.:  55 11 8214-7819                }
+{                 Tel.:  55 11 98214-7819               }
 {                                                       }
 {                 Email: sum182@gmail.com               }
 {*******************************************************}

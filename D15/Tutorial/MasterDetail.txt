@@ -9,7 +9,8 @@ https://www.youtube.com/watch?v=bO-NfAuREqQ
 
 Para configurar e simples.
 
-No FDQuery Master
+
+***No FDQuery Master
 CachedUpdates = True
 SchemaAdapter = Setar um componente
 UpdateOptions
@@ -17,7 +18,7 @@ UpdateOptions
 
 
 
-No FDQuery Detail
+***No FDQuery Detail
 MasterSource
 MasterFields
 IndexFieldNames = setar o filed id do master
@@ -35,11 +36,20 @@ Params = setar o campo como o tipo AutoInc
 ** Abrir e fechar a query em tempo de desenvolvimento e verificar se as propriedades dos campos estão corretas.
 
 
-Salvar
+-Salvar
 SchemaAdapter.ApplyUpdates(0);
 
 Evento FDSchemaAdapterAfterApplyUpdate
 Executar o comando Query.CommitUpdates; das querys envolvidas
+
+-Cancelar
+  FDQuery.Cancel;
+  FDQuery.CancelUpdates;
+
+-Before Edit/Insert do FDQDetail
+  FDQueryMaster.Edit;
+  FDQueryMaster.Post;
+  FDQueryMaster.Edit;
 -----------------------------------------------------------------------------------------------
 
 

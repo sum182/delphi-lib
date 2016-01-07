@@ -188,7 +188,10 @@ begin
     try
       Wait(self, 'Salvando Informações');
       sleep(520);
-      edFocus.SetFocus;
+
+      Self.SetFocus;
+      //edFocus.SetFocus;
+
       ValidarCampos(tbCadastro);
 
       if not(smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then

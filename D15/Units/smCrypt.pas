@@ -15,7 +15,7 @@ interface
 
 uses
   Windows, Forms, Controls, Typinfo, SysUtils, Types, Classes,
-  DBClient, DB, SqlExpr, Variants, RC6Enc;
+  DBClient, DB, SqlExpr, Variants, RC6Enc,System.NetEncoding;
 
 function Encrypt(S: string): string;overload;
 function Decrypt(S: string): string;overload;
@@ -29,12 +29,19 @@ implementation
 
 function Encrypt(S: string): string;
 begin
-  Result := Encrypt(S,Key);
+  //metodo antigo da unit RC6Enc
+  //Result := Encrypt(S,Key);
+
+  Result:= TNetEncoding.Base64.Encode(Key + S);
 end;
 
 function Decrypt(S: string): string;
 begin
-  Result := Decrypt(S,Key);
+  //metodo antigo da unit RC6Enc
+  //Result := Decrypt(S,Key);
+
+  Result := TNetEncoding.Base64.Decode(S);
+  Result := StringReplace(result,key,'',[]);
 end;
 
 end.

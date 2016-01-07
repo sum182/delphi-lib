@@ -186,7 +186,7 @@ procedure TfrmCad.AcCancelarExecute(Sender: TObject);
 begin
   inherited;
   try
-    Screen.Cursor := crSQLWait;
+    Screen.Cursor := crHourGlass;
     tbCadastro.Cancel;
     OpenDataSet(tbCadastro);
     AcLocalizarExecute(self);
@@ -218,7 +218,7 @@ procedure TfrmCad.AcEditExecute(Sender: TObject);
 begin
   inherited;
   try
-    Screen.Cursor := crSQLWait;
+    Screen.Cursor := crHourGlass;
     tbCadastro.Edit;
     TaShCadastro.Enabled := True;
     tbCadastro.Fields[0].FocusControl;
@@ -255,7 +255,7 @@ procedure TfrmCad.AcNovoExecute(Sender: TObject);
 begin
   inherited;
   try
-    Screen.Cursor := crSQLWait;
+    Screen.Cursor := crHourGlass;
     try
       PaCoPadrao.ActivePageIndex := 1;
       with tbCadastro do
@@ -919,7 +919,7 @@ var
 
 begin
   try
-    Screen.Cursor := crSQLWait;
+    Screen.Cursor := crHourGlass;
 
     if ((tbCadastro is TADODataSet) or (tbCadastro is TADOQuery)) then
       GetParamsADO

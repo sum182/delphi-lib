@@ -194,7 +194,7 @@ begin
 
   WaitEnd(Formulario);
   Mensagem := Mensagem + ' ...';
-  Screen.Cursor := crSQLWait;
+  Screen.Cursor := crHourGlass;
   pngAguarde := TPanel.Create(Formulario);
   with pngAguarde do
   begin
@@ -225,7 +225,7 @@ end;
 procedure Wait(milliseconds: Cardinal = 0);
 begin
   //Cursor de Aguarde
-  Screen.Cursor := crSQLWait;
+  Screen.Cursor := crHourGlass;
   Application.ProcessMessages;
   Sleep(milliSeconds);
 end;
@@ -273,7 +273,7 @@ begin
       Exit;
     try
       Mensagem := Mensagem + ' ...';
-      Screen.Cursor := crSQLWait;
+      Screen.Cursor := crHourGlass;
 
       Application.ProcessMessages;
       for i := 0 to formulario.ComponentCount - 1 do

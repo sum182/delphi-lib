@@ -184,15 +184,15 @@ var
   FDQuery:TFDQuery;
 begin
   inherited;
+
+  //edFocus.SetFocus;
+  Self.SetFocus;
+  ValidarCampos(tbCadastro);
+
   try
     try
       Wait(self, 'Salvando Informações');
       sleep(520);
-
-      Self.SetFocus;
-      //edFocus.SetFocus;
-
-      ValidarCampos(tbCadastro);
 
       if not(smCadPadrao.DataSourceCadastro.DataSet is TFDQuery)then
         tbCadastro.Post;

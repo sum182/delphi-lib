@@ -29,6 +29,7 @@ type
 
 function VerificarNumero(Expressao: Variant): Boolean;
 function VerificarFloat(Expressao: Variant): Boolean;
+procedure ValidarCampo(Field: TField);
 procedure ValidarCampos(DataSet: TDataSet);
 function GetFirstDay(): string;
 function GetLastDay(): string;
@@ -124,6 +125,20 @@ begin
   else
     Result := True;
 end;
+
+procedure ValidarCampo(Field: TField);
+var
+  nCampo: Integer;
+begin
+  //Valida os campos obrigatorios
+    if (Field.IsNull) then
+    begin
+      Msg('É obrigatório o preenchimento do campo: ' + Field.DisplayName, mtErro);
+      Field.FocusControl;
+      Abort;
+    end;
+end;
+
 
 procedure ValidarCampos(DataSet: TDataSet);
 var

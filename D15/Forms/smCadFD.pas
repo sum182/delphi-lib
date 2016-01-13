@@ -286,14 +286,7 @@ end;
 procedure TfrmCadFD.AcEditExecute(Sender: TObject);
 begin
   inherited;
-  try
-    Screen.Cursor := crHourGlass;
-    tbCadastro.Edit;
-    TaShCadastro.Enabled := True;
-    tbCadastro.Fields[0].FocusControl;
-  finally
-    Screen.Cursor := crDefault;
-  end;
+  ShowTabCadastro;
 end;
 
 procedure TfrmCadFD.AcFirstExecute(Sender: TObject);
@@ -459,6 +452,7 @@ begin
     ' AND ' + CondicaoBusca);
   if smCadPadrao.DataSourceBusca.DataSet.IsEmpty then
     Msg('Não foram encontrados dados para esta pesquisa!');
+
 end;
 
 function TfrmCadFD.BuscaGetCondicoes: string;
@@ -891,6 +885,7 @@ begin
   if PaCoPadrao.ActivePageIndex in [0] then
   begin
     AcNovo.Enabled := tbCadastro.State in [dsBrowse, dsInactive];
+    AcEdit.Enabled := (tbCadastro.State in [dsBrowse, dsInactive]) and not(smCadPadrao.DataSourceBusca.DataSet.IsEmpty) ;
     btnLocalizarTodosRegistros.Enabled := True;
   end;
 
@@ -938,6 +933,7 @@ procedure TfrmCadFD.GetDsCadastro;
 begin
   dsCadastro := smCadPadrao.DataSourceCadastro;
   dsCadastro.OnStateChange := SetToolBarButtonsState;
+  dsBusca.OnStateChange := SetToolBarButtonsState;
 end;
 
 function TfrmCadFD.GetForm: TForm;
@@ -1050,8 +1046,11 @@ begin
       PaCoPadrao.ActivePageIndex := 0;
       Msg('Registro não localizado!', mtErro);
     end;
+
+    tbCadastro.Edit;
+    TaShCadastro.Enabled := True;
+    tbCadastro.Fields[0].FocusControl;
     SetToolBarButtonsState(self);
-    btnAlterar.Click;
   finally
     Screen.Cursor := crDefault;
   end;

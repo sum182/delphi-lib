@@ -21,7 +21,9 @@ function Encrypt(S: string): string;overload;
 function Decrypt(S: string): string;overload;
 
 const
-  Key = '16854@#*sum182@#*9987';
+  //Key = '16854@#*sum182@#*9987';
+  Key = 'fHxIakhLTE/Dp0BhYQ==';
+
 
 implementation
 

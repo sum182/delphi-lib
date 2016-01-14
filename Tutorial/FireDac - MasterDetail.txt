@@ -1,0 +1,59 @@
+
+FireDac MasterDetail
+-----------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=fO99lDwa5Nc
+https://www.youtube.com/watch?v=bsv-U9ywRms
+https://www.youtube.com/watch?v=bO-NfAuREqQ
+
+
+
+Para configurar e simples.
+
+
+***No FDQuery Master
+CachedUpdates = True
+SchemaAdapter = Setar um componente
+UpdateOptions
+  AutoIncFields - setar o campo
+
+
+
+***No FDQuery Detail
+MasterSource
+MasterFields
+IndexFieldNames = setar o filed id do master
+
+CachedUpdates = True
+
+FetchOptions
+  DetailCascate = True
+  Cache
+    FiDetails = True
+SchemaAdapter = Setar um componente
+UpdateOptions
+  AutoIncFields - setar o campo da tabela detalhe
+Params = setar o campo como o tipo AutoInc
+** Abrir e fechar a query em tempo de desenvolvimento e verificar se as propriedades dos campos estão corretas.
+
+
+-Salvar
+SchemaAdapter.ApplyUpdates(0);
+
+Evento FDSchemaAdapterAfterApplyUpdate
+Executar o comando Query.CommitUpdates; das querys envolvidas
+
+-Cancelar
+  FDQuery.Cancel;
+  FDQuery.CancelUpdates;
+
+-Before Edit/Insert do FDQDetail
+  FDQueryMaster.Edit;
+  FDQueryMaster.Post;
+  FDQueryMaster.Edit;
+-----------------------------------------------------------------------------------------------
+
+
+ClientDataSet Master Detail
+-----------------------------------------------------------------------------------------------
+http://www.edesoft.com.br/artigos/116-chaves-com-cds
+-----------------------------------------------------------------------------------------------

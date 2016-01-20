@@ -105,6 +105,7 @@ procedure LockedPenDriver;
 procedure UnlockedPenDriver;
 function GetSQLFileName:string;
 procedure CopyMenuItem(Src, Dest: TMenuItem);
+function SomenteNumero(Valor: String): String;
 
 implementation
 
@@ -1308,6 +1309,17 @@ begin
     Dest.Add(Item);
     CopyMenuItem(Src.Items[i], Item);
   end;
+end;
+
+
+function SomenteNumero(Valor: String): String;
+var
+  I : Byte;
+begin
+   Result := '';
+   for I := 1 To Length(Valor) do
+       if Valor [I] In ['0'..'9'] Then
+            Result := Result + Valor [I];
 end;
 end.
 

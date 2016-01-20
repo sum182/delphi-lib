@@ -773,7 +773,7 @@ begin
   *                                                                              *
   *******************************************************************************}
   if (Key = #13) and (BuProcessar.Enabled) then
-    BuProcessarClick(Self);
+    BuProcessar.OnClick(Self);
 end;
 
 procedure TfrmCadFD.OpenBuscaSql(sql: string);

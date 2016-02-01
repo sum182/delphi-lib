@@ -366,7 +366,7 @@ begin
 
     CondicaoBusca:= '';
     Wait(Self, 'Carregando Informações');
-    OpenBuscaSql('SELECT ' + CamposBusca + ' FROM ' + Tabela + Joins + ' ' + ' WHERE 1=1 ')
+    OpenBuscaSql('select ' + CamposBusca + ' from ' + Tabela +  Joins + ' ' + ' where 1=1 ')
 
   finally
     WaitEnd(self);
@@ -447,7 +447,7 @@ begin
   inherited;
   PrepararCondicaoBusca;
   OpenBuscaSql(' SELECT ' + CamposBusca +
-    ' FROM ' + Tabela + Joins +
+    ' FROM ' + Tabela  + Joins +
     ' WHERE 1 = 1 ' +
     ' AND ' + CondicaoBusca);
   if smCadPadrao.DataSourceBusca.DataSet.IsEmpty then
@@ -792,7 +792,7 @@ begin
 
   //Concatendo condicoes de buscan
   if (CondicaoBusca <> '') then
-    sql := sql + 'AND ' + CondicaoBusca;
+    sql := sql + 'and ' + CondicaoBusca;
 
   try
     with smCadPadrao.DataSourceBusca do
@@ -943,7 +943,7 @@ end;
 
 procedure TfrmCadFD.GetTable;
 begin
-  Tabela := UpperCase(smCadPadrao.Tabela);
+  Tabela := (smCadPadrao.Tabela);
 
   if smCadPadrao.Tabela = '' then
   begin

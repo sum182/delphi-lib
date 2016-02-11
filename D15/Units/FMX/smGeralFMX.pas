@@ -12,11 +12,22 @@
 
 unit smGeralFMX;
 
+
 interface
+
+uses
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Effects, FMX.Objects,
+  FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, smCrypt, FMX.ListBox,
+  FMX.TabControl,FMX.VirtualKeyboard,FMX.Platform;
 
   function IsSysOSAndroid:Boolean;
   function IsSysOSWindows:Boolean;
   function IsSysOSiOS:Boolean;
+  procedure KeyboardHide;
+
+
+
 
 implementation
 
@@ -43,5 +54,18 @@ begin
   Result:=True;
   {$ENDIF}
 end;
+
+procedure KeyboardHide;
+var
+  Keyboard: IFMXVirtualKeyboardService;
+begin
+    if TPlatformServices.Current.SupportsPlatformService
+      (IFMXVirtualKeyboardService, Keyboard) then
+    begin
+      Keyboard.HideVirtualKeyboard;
+    end;
+
+end;
+
 
 end.

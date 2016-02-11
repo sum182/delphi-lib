@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="">
+  <PropertyGroup>
+    <Profile_platform>Android</Profile_platform>
+    <Profile_host>localhost</Profile_host>
+    <Profile_port>64211</Profile_port>
+    <Profile_sdkname>AndroidSDK24.4.1_32bit.sdk</Profile_sdkname>
+    <Profile_displayname>Android SDK 24.4.1 32bit</Profile_displayname>
+    <Profile_version>24.4.1</Profile_version>
+    <Profile_sysroot>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows</Profile_sysroot>
+    <NDKArmLinuxAndroidFile>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\toolchains\arm-linux-androideabi-4.6\prebuilt\windows\bin\arm-linux-androideabi-ld.exe</NDKArmLinuxAndroidFile>
+    <NDKArmLinuxAndroidStripFile>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\toolchains\arm-linux-androideabi-4.6\prebuilt\windows\bin\arm-linux-androideabi-strip.exe</NDKArmLinuxAndroidStripFile>
+    <NDKApiPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\platforms\android-14</NDKApiPath>
+    <NDKBasePath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c</NDKBasePath>
+    <NDKGdbServerPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\prebuilt\android-arm\gdbserver\gdbserver</NDKGdbServerPath>
+    <SDKZipAlignPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows\build-tools\22.0.1\zipalign.exe</SDKZipAlignPath>
+    <SDKAndroidPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows\tools\Android.bat</SDKAndroidPath>
+    <SDKAdbPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows\platform-tools\Adb.exe</SDKAdbPath>
+    <SDKAaptPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows\build-tools\22.0.1\aapt.exe</SDKAaptPath>
+    <SDKApiLevelPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows\platforms\android-23\android.jar</SDKApiLevelPath>
+    <JDKPath>C:\Program Files\Java\jdk1.8.0_66</JDKPath>
+    <JDKJarsignerPath>C:\Program Files\Java\jdk1.8.0_66\bin\JarSigner.exe</JDKJarsignerPath>
+    <JDKKeyToolPath>C:\Program Files\Java\jdk1.8.0_66\bin\KeyTool.exe</JDKKeyToolPath>
+    <DelphiNDKLibraryPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\sources\cxx-stl\gnu-libstdc++\4.8\libs\armeabi-v7a;C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\platforms\android-14\arch-arm\usr\lib</DelphiNDKLibraryPath>
+    <CBuilderNDKLibraryPath>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-ndk-r9c\platforms\android-14\arch-arm\usr\lib</CBuilderNDKLibraryPath>
+    <Profile_password>AB1401D23AF8F3C66832CE6040E1FA2D</Profile_password>
+  </PropertyGroup>
+</Project>

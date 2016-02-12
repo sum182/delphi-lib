@@ -1,0 +1,20 @@
+inherited frmBaseToolBar: TfrmBaseToolBar
+  Caption = 'frmBase1'
+  DesignerMasterStyle = 3
+  inherited layBase: TLayout
+    object ToolBar1: TToolBar
+      Size.Width = 640.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btnMenu: TSpeedButton
+        Align = Left
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'detailstoolbuttonbordered'
+        Text = 'Menu'
+      end
+    end
+  end
+end

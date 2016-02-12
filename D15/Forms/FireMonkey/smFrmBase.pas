@@ -10,8 +10,6 @@ uses
 type
   TfrmBase = class(TfrmBaseForAll)
     layBase: TLayout;
-    ToolBar1: TToolBar;
-    btnMenu: TSpeedButton;
   private
     { Private declarations }
   public

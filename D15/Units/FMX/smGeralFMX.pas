@@ -17,16 +17,14 @@ interface
 
 uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Effects, FMX.Objects,
-  FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, smCrypt, FMX.ListBox,
-  FMX.TabControl,FMX.VirtualKeyboard,FMX.Platform;
+  FMX.Effects, FMX.Objects, FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, smCrypt, FMX.ListBox,
+  FMX.TabControl,FMX.VirtualKeyboard,FMX.Platform,System.UITypes;
 
   function IsSysOSAndroid:Boolean;
   function IsSysOSWindows:Boolean;
   function IsSysOSiOS:Boolean;
   procedure KeyboardHide;
-
-
+  procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
 
 
 implementation
@@ -65,6 +63,18 @@ begin
       Keyboard.HideVirtualKeyboard;
     end;
 
+end;
+
+procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
+begin
+  if TPlatformServices.Current.SupportsPlatformService(IFMXCursorService) then
+    CursorService := TPlatformServices.Current.GetPlatformService(IFMXCursorService) as IFMXCursorService;
+
+  if Assigned(CursorService) then
+  begin
+    Form.Cursor := CursorService.GetCursor;
+    CursorService.SetCursor(crHourGlass);
+  end;
 end;
 
 

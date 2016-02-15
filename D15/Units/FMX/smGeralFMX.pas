@@ -96,19 +96,6 @@ begin
   end;
 end;
 
-procedure SetCursor(ACursor: TCursor);
-var
-  CS: IFMXCursorService;
-begin
-  if TPlatformServices.Current.SupportsPlatformService(IFMXCursorService) then
-  begin
-    CS := TPlatformServices.Current.GetPlatformService(IFMXCursorService) as IFMXCursorService;
-  end;
-  if Assigned(CS) then
-  begin
-    CS.SetCursor(ACursor);
-  end;
-end;
 
 
 end.

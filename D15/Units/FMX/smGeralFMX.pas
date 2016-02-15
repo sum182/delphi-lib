@@ -25,6 +25,7 @@ uses
   function IsSysOSiOS:Boolean;
   procedure KeyboardHide;
   procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
+  procedure SetCursor(ACursor: TCursor);
 
 
 implementation
@@ -74,6 +75,21 @@ begin
   begin
     Form.Cursor := CursorService.GetCursor;
     CursorService.SetCursor(crHourGlass);
+  end;
+end;
+
+
+procedure SetCursor(ACursor: TCursor);
+var
+  CS: IFMXCursorService;
+begin
+  if TPlatformServices.Current.SupportsPlatformService(IFMXCursorService) then
+  begin
+    CS := TPlatformServices.Current.GetPlatformService(IFMXCursorService) as IFMXCursorService;
+  end;
+  if Assigned(CS) then
+  begin
+    CS.SetCursor(ACursor);
   end;
 end;
 

@@ -30,6 +30,8 @@ uses
 
 implementation
 
+
+
 function IsSysOSAndroid:Boolean;
 begin
   Result:=False;
@@ -68,6 +70,7 @@ end;
 
 procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
 begin
+  //esta rotina não foi devidamente testada
   if TPlatformServices.Current.SupportsPlatformService(IFMXCursorService) then
     CursorService := TPlatformServices.Current.GetPlatformService(IFMXCursorService) as IFMXCursorService;
 
@@ -78,6 +81,20 @@ begin
   end;
 end;
 
+procedure SetCursor(ACursor: TCursor);
+var
+  CS: IFMXCursorService;
+begin
+  //esta rotina não foi devidamente testada
+  if TPlatformServices.Current.SupportsPlatformService(IFMXCursorService) then
+  begin
+    CS := TPlatformServices.Current.GetPlatformService(IFMXCursorService) as IFMXCursorService;
+  end;
+  if Assigned(CS) then
+  begin
+    CS.SetCursor(ACursor);
+  end;
+end;
 
 procedure SetCursor(ACursor: TCursor);
 var

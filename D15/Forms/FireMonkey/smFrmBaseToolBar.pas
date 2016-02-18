@@ -10,7 +10,9 @@ uses
 type
   TfrmBaseToolBar = class(TfrmBase)
     ToolBar1: TToolBar;
-    btnMenu: TSpeedButton;
+    lblTitulo: TLabel;
+    layToolBarMenu: TLayout;
+    btnVoltar: TSpeedButton;
   private
     { Private declarations }
   public

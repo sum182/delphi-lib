@@ -7,13 +7,29 @@ inherited frmBaseToolBar: TfrmBaseToolBar
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object btnMenu: TSpeedButton
+      object lblTitulo: TLabel
         Align = Left
-        Size.Width = 48.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Position.X = 80.000000000000000000
+        Size.Width = 82.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
-        StyleLookup = 'detailstoolbuttonbordered'
-        Text = 'Menu'
+        Text = 'T'#237'tulo'
+      end
+      object layToolBarMenu: TLayout
+        Align = Left
+        Size.Width = 70.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btnVoltar: TSpeedButton
+          Align = Client
+          Margins.Left = 12.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'backtoolbutton'
+        end
       end
     end
   end

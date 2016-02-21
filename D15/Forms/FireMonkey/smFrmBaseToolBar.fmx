@@ -6,29 +6,142 @@ inherited frmBaseToolBar: TfrmBaseToolBar
       Size.Width = 640.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 0
       object lblTitulo: TLabel
         Align = Left
-        Margins.Left = 10.000000000000000000
-        Position.X = 80.000000000000000000
+        Margins.Left = 23.000000000000000000
+        Position.X = 69.000000000000000000
         Size.Width = 82.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
+        StyleLookup = 'toollabel'
         Text = 'T'#237'tulo'
       end
       object layToolBarMenu: TLayout
         Align = Left
-        Size.Width = 70.000000000000000000
+        Size.Width = 46.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object btnVoltar: TSpeedButton
           Align = Client
-          Margins.Left = 12.000000000000000000
-          Size.Width = 48.000000000000000000
+          Size.Width = 46.000000000000000000
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
-          StyleLookup = 'backtoolbutton'
+          object imgVoltar: TImage
+            MultiResBitmap.Height = 24
+            MultiResBitmap.Width = 24
+            MultiResBitmap = <
+              item
+                Width = 24
+                Height = 24
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+                  F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  006D49444154484BEDD04B0A80300C04D0E271046FE3E73AF5DC4A62845124B8
+                  923150C883503A8B4C69496D51D52A222BAE5CE7721BB582DD6640CCE1962F88
+                  3972F9AB90E55F61CDADC319CB1EF2DF175D5CC98C98EB51B2D93121E60A2FB1
+                  191173B9921E31174A2AAEA909A51C8C64FDD974BD12730000000049454E44AE
+                  426082}
+                FileName = 
+                  'C:\Projetos\Agenda\Imagens\ic_arrow_back\ic_arrow_back_white_24d' +
+                  'p\ic_arrow_back_white_24dp\android\drawable-mdpi\ic_arrow_back_w' +
+                  'hite_24dp.png'
+              end
+              item
+                Scale = 1.500000000000000000
+                Width = 36
+                Height = 36
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000024000000240806000000E10098
+                  98000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  00C0494441545847ED96ED0AC2300C455B157C6C7D85BD8B1F8F26FE69BDD726
+                  20AD880A5B5A9603256481E5D0B2ACC1719C11C8391FB924B54564145B290A14
+                  8F424AE98AB095F2B2A0712383B597F2B2A07F2D73711982FEB5CCD96508FAD7
+                  32A7D5C844896F417F0EBA43C99EF90D618A31DECB93FFC13B7E1BA294E18ECC
+                  85B469D848EC86718E4CA114B75831FDC21478F4338314780C2165F71F53E0E1
+                  525F018F5ACAEE82A6C0A39142D849D90608BC4AD95EF2158A7423E338CE4742
+                  78003F530135583C98A40000000049454E44AE426082}
+                FileName = 
+                  'C:\Projetos\Agenda\Imagens\ic_arrow_back\ic_arrow_back_white_24d' +
+                  'p\ic_arrow_back_white_24dp\android\drawable-hdpi\ic_arrow_back_w' +
+                  'hite_24dp.png'
+              end
+              item
+                Scale = 2.000000000000000000
+                Width = 48
+                Height = 48
+                PNG = {
+                  89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+                  87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  00A6494441546843EDD8410A83301046E1D04BF56A2E3D724F90F40F9D810A71
+                  53D09929EF031151C21BD14D1A0000571963ECF3B0CB5A2CDED51A62067FBA0F
+                  36BB9D9B4257F1AFDEFBD31EC94BA1C4875028F121144A7C0885121F42A1C487
+                  50E82AFE1696F03BAD11163F59C6A9879DFF9B5E44DD4FC869ADBA3FB1533043
+                  A4A060864841C10C9182821922050533440A0A5E0D51636BD129F87B88D23BD4
+                  35E3010005B4F606DD0016D88691173A0000000049454E44AE426082}
+                FileName = 
+                  'C:\Projetos\Agenda\Imagens\ic_arrow_back\ic_arrow_back_white_24d' +
+                  'p\ic_arrow_back_white_24dp\android\drawable-xhdpi\ic_arrow_back_' +
+                  'white_24dp.png'
+              end
+              item
+                Scale = 3.000000000000000000
+                Width = 72
+                Height = 72
+                PNG = {
+                  89504E470D0A1A0A0000000D494844520000004800000048080600000055EDB3
+                  47000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  014C49444154785EEDD9DD4EC2401445E1E2039878EFCFA3AA313EA50A6FD2BA
+                  0F3D188CCCECB67778D6974C86C2DC9C9502090C0000000080DAA6697A899597
+                  3897718EC6717CCDA711D4E427CE8922BDE5CBB5A9C59F38278AF49EC76A5283
+                  669CA040076D7779BC160D6EE3683DE5F15A343F715A343F715A34BF8BB3274E
+                  03713A88D3419C8E88A3ED318FD7A2C189D3A2C189D3A2C189D3A2C15D9C2F6D
+                  C4B984381DC4E9204EC77F88B3CB7D350D1E3FAE3FCF57D76327F970919BDC57
+                  B9D6385BAC0E54294ED8740755B23A90DEC2710795F9DF6AD31D542DD266F179
+                  A4D5145FF35A0F79BC26752092A30E4472D481488E3A10C9510717E9934844F2
+                  D481488E3A2C89749FC76B52072239EA4024471D88E4A803911C7570913E8844
+                  244F1D88E4A8C39248B779BC2675E8458A5F2E1121E61EBF10E75C0499BB1C11
+                  E79208431C00000000A86E18BE017C03BC579C7E1CA30000000049454E44AE42
+                  6082}
+                FileName = 
+                  'C:\Projetos\Agenda\Imagens\ic_arrow_back\ic_arrow_back_white_24d' +
+                  'p\ic_arrow_back_white_24dp\android\drawable-xxhdpi\ic_arrow_back' +
+                  '_white_24dp.png'
+              end
+              item
+                Scale = 4.000000000000000000
+                Width = 96
+                Height = 96
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+                  38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  019049444154785EEDDC4D6EDA50008551E8B89BEC4AD2AEADFB82DE97E70E22
+                  4509E09F8BC43912321E78F25D190B09710200000000007866D7EBF5F7782DA7
+                  1C6989FF9F118E3482CFEE1F18E10823F4ECFD2923EC69049E9DBF64843D8CB0
+                  B3EFF72E97CBAFE532B690A6F7C4FF9BC3CFE552D64A4CF15B1253FC96C414BF
+                  2531C56F494CF15B1253FC96C414BF2531C56F494CF15B1253FC96C414BF2531
+                  C56F494CF15B1253FC96C414BF2531C56F494CF15B1253FC96C414BF2531C56F
+                  494CF1EF705E8E9B48CCF19B9CB779F61ACEB1BC7DC88FE5B8DA2BC6DFC22603
+                  88FFB8D50388BFCE661F413C66F50079068D3BE0CF3CE35E9BDC014678DC661F
+                  41467812E3A19CD74D7C11DB49A21AA12D518DD096A846684B5423B425AA11DA
+                  12D5086D896A84B64435425BA21AA12D518DD096A846684B5423B425AA11DA12
+                  D5086D896A84B64435425BA21AA12D518DD096A846684B5423B425AA11DA12F5
+                  9E11FC69DF1ED2F69611C6EF93D8CB083C3B7F4AFC238CD0B3F707E21F69049F
+                  DDDF89DF30C28B0F00000000003CB7D3E91F37FDF2BF23EDCEAF000000004945
+                  4E44AE426082}
+                FileName = 
+                  'C:\Projetos\Agenda\Imagens\ic_arrow_back\ic_arrow_back_white_24d' +
+                  'p\ic_arrow_back_white_24dp\android\drawable-xxxhdpi\ic_arrow_bac' +
+                  'k_white_24dp.png'
+              end>
+            Align = Client
+            Size.Width = 46.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            WrapMode = Center
+            OnClick = imgVoltarClick
+          end
         end
       end
     end

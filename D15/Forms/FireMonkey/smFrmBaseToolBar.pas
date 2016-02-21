@@ -11,7 +11,7 @@ type
   TfrmBaseToolBar = class(TfrmBase)
     ToolBar1: TToolBar;
     lblTitulo: TLabel;
-    layToolBarMenu: TLayout;
+    layToolBarVoltar: TLayout;
     btnVoltar: TSpeedButton;
     imgVoltar: TImage;
     procedure imgVoltarClick(Sender: TObject);

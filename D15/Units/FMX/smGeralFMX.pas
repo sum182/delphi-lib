@@ -26,9 +26,14 @@ uses
   procedure KeyboardHide;
   procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
   procedure SetCursor(ACursor: TCursor);
+  function ValidarEMail(Email: string): Boolean;
+  function SomenteNumero(Valor: String): String;
 
 
 implementation
+
+uses
+  System.SysUtils;
 
 
 
@@ -97,5 +102,27 @@ begin
 end;
 
 
+function ValidarEMail(Email: string): Boolean;
+begin
+ Email := Trim(UpperCase(Email));
+
+ if Pos('@', Email) > 1 then
+ begin
+   Delete(Email, 1, pos('@', Email));
+   Result := (Length(Email) > 0) and (Pos('.', Email) > 2);
+ end
+ else
+   Result := False;
+end;
+
+function SomenteNumero(Valor: String): String;
+var
+  I : Byte;
+begin
+   Result := '';
+   for I := 0 To Length(Valor) do
+       if Valor [I] In ['0'..'9'] Then
+            Result := Result + Valor [I];
+end;
 
 end.

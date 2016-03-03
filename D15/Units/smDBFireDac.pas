@@ -20,6 +20,8 @@ Uses
   FireDAC.Comp.Client;
 
   procedure SalvarQueryMaster(Dataset:TFDQuery);
+  procedure DataSetDelete(DataSet: TDataSet);
+  procedure CopyDataSet(Origem, Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
 
 
 implementation
@@ -36,6 +38,32 @@ begin
   DataSet.Edit;
   DataSet.Post;
   DataSet.Edit;
+end;
+
+procedure DataSetDelete(DataSet: TDataSet);
+begin
+  //Deleta todos os registros de um dataset
+  with dataset do
+  begin
+    First;
+    while not (eof) do
+      Delete;
+  end;
+end;
+
+
+procedure CopyDataSet(Origem, Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
+begin
+  if Origem.State in [dsInactive] then
+    Origem.Active := True;
+
+  if Destino.State in [dsInactive] then
+    Destino.Active := True;
+
+  if DeleteDestino then
+    DataSetDelete(Destino);
+
+  Destino.CopyDataSet(Origem, AOptions);
 end;
 
 

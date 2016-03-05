@@ -30,6 +30,7 @@ uses
   function SomenteNumero(Valor: String): String;
   procedure OnEnterFields(Form:TForm;var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);
   function ValidCPF(CPF: string): boolean;
+  function GetGUID:string;
 
 
 implementation
@@ -186,5 +187,13 @@ begin
     Result := True;
 end;
 
+function GetGUID:string;
+var
+  UID : TGuid;
+begin
+  Result := '';
+  CreateGUID(UID);
+  Result := Copy(GUIDToString(UID), 2, Length(GUIDToString(UID))-2);
+end;
 
 end.

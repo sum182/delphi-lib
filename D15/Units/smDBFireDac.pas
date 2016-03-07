@@ -17,11 +17,13 @@ interface
 Uses
   Classes,  DBClient,  DB, SqlExpr,FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client,System.SysUtils;
 
   procedure SalvarQueryMaster(Dataset:TFDQuery);
   procedure DataSetDelete(DataSet: TDataSet);
   procedure CopyDataSet(Origem, Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
+  procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);
+
 
 
 implementation
@@ -66,6 +68,35 @@ begin
   Destino.CopyDataSet(Origem, AOptions);
 end;
 
+procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);
+begin
+  if Origem.State in [dsInactive] then
+    Origem.Active := True;
+
+  if Destino.State in [dsInactive] then
+    Destino.Active := True;
+
+  if Origem.RecordCount >= 1 then
+  begin
+
+    Origem.First;
+    while not (Origem.Eof) do
+    begin
+      try
+        Destino.Append;
+        Destino.CopyRecord(Origem);
+        Destino.Post;
+        Origem.Next;
+      except on E:Exception do
+      begin
+        Exceptions:= Exceptions + E.Message;
+        Destino.Cancel;
+        Origem.Next;
+      end;
+      end;
+    end;
+  end;
+end;
 
 
 

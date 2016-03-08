@@ -430,3 +430,18 @@ end;
 Repositorios
 https://github.com/monde-sistemas
 https://github.com/gmurt
+
+
+
+
+Forma correta de Aninhar tratamento de exceções usando Try, Except, Finally:
+
+Try
+  Try
+    ...
+  Except
+    ...
+  End;
+Finally
+  ...
+End; 

@@ -106,8 +106,13 @@ procedure UnlockedPenDriver;
 function GetSQLFileName:string;
 procedure CopyMenuItem(Src, Dest: TMenuItem);
 function SomenteNumero(Valor: String): String;
+function GetGUID:string;
+
 
 implementation
+
+uses
+  System.TypInfo;
 
 function VerificarNumero(Expressao: Variant): Boolean;
 begin
@@ -1321,5 +1326,17 @@ begin
        if Valor [I] In ['0'..'9'] Then
             Result := Result + Valor [I];
 end;
+
+
+function GetGUID:string;
+var
+  UID : TGuid;
+begin
+  Result := '';
+  CreateGUID(UID);
+  Result := Copy(GUIDToString(UID), 2, Length(GUIDToString(UID))-2);
+end;
+
+
 end.
 

@@ -21,7 +21,7 @@ Uses
 
   procedure SalvarQueryMaster(Dataset:TFDQuery);
   procedure DataSetDelete(DataSet: TDataSet);
-  procedure CopyDataSet(Origem, Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
+  procedure CopyDataSet(Origem:TDataset; Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
   procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);
 
 
@@ -45,6 +45,9 @@ end;
 procedure DataSetDelete(DataSet: TDataSet);
 begin
   //Deleta todos os registros de um dataset
+  if DataSet.State in [dsInactive] then
+    DataSet.Active := True;
+
   with dataset do
   begin
     First;
@@ -54,7 +57,7 @@ begin
 end;
 
 
-procedure CopyDataSet(Origem, Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
+procedure CopyDataSet(Origem:TDataset; Destino: TFDDataSet;DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
 begin
   if Origem.State in [dsInactive] then
     Origem.Active := True;
@@ -89,7 +92,10 @@ begin
         Origem.Next;
       except on E:Exception do
       begin
-        Exceptions:= Exceptions + E.Message;
+        //if E.Errors[i].ErrorCode = ERRCODE_KEYVIOL then
+        //if Pos('for key ' + QuotedStr('PRIMARY'),E.Message)<> 0 then
+        //if Pos('for key ',E.Message)<> 0 then
+          Exceptions:= Exceptions + E.Message;
         Destino.Cancel;
         Origem.Next;
       end;

@@ -22,7 +22,7 @@ uses
 
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,smStrings;
 
 type
   TBanco = (bdOracle, bdFireBid, bdPervasive, bdPostGre, bdSqlServer, BdMySql);
@@ -59,7 +59,6 @@ procedure ChecklstBoxAddTodos(CheckListBox: TCheckListBox);
 procedure ChecklstBoxSelect(Sender: TObject);
 procedure ChecklstBoxCheckAll(CheckListBox: TCheckListBox; CheckedAll: Boolean = True);
 procedure FillDataSet(ADataSet: TDataSet; Lines: TStrings; TextField: string; KeyField: string = '');
-procedure AddCommaStr(var Text: string; Item: string; Ch: string);
 function chlSelected(Campo: string; chl: TCheckListBox): string;
 function LerFlag(const Num: Cardinal; const Bit: Byte): Boolean; overload;
 procedure GravaFlag(var Num: Integer; const Bit: Byte; Value: Boolean); overload;
@@ -619,15 +618,6 @@ begin
 
 end;
 
-procedure AddCommaStr(var Text: string; Item: string; Ch: string);
-begin
-  if (Item = '') then
-    Exit;
-  if (Text = '') then
-    Text := Item
-  else
-    Text := Text + Ch + Item;
-end;
 
 function chlSelected(Campo: string; chl: TCheckListBox): string;
 var

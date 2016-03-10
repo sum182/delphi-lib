@@ -17,12 +17,13 @@ interface
 Uses
   Classes,  DBClient,  DB, SqlExpr,FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client,System.SysUtils;
+  FireDAC.Comp.Client,System.SysUtils,smStrings;
 
   procedure SalvarQueryMaster(Dataset:TFDQuery);
   procedure DataSetDelete(DataSet: TDataSet);
   procedure CopyDataSet(Origem:TDataset; Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
   procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);
+  function GetKeyValuesDataSet(DataSet:TDataSet; KeyField:String):String;
 
 
 
@@ -104,7 +105,24 @@ begin
   end;
 end;
 
+function GetKeyValuesDataSet(DataSet:TDataSet; KeyField:String):String;
+begin
+  Result:= EmptyStr;
 
+  if DataSet.State in [dsInactive] then
+    DataSet.Open;
 
+  if (DataSet.FindField(KeyField)= Nil) then
+    Exit;
+
+  DataSet.First;
+  while not(DataSet.Eof)  do
+  begin
+    AddCommaStr(Result, QuoTedStr(DataSet.FieldByName(KeyField).AsString), ',');
+    DataSet.Next;
+  end;
+
+  DataSet.First;
+end;
 
 end.

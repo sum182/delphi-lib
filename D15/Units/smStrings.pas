@@ -14,10 +14,11 @@ unit smStrings;
 
 interface
 uses
-  Windows, Messages, SysUtils, Variants, Classes,Controls, StdCtrls;
+  Windows, Messages, SysUtils, Variants, Classes;
 
   function RemoveAcentos(str: string): string;
   function FirstUpperCase(str: string): string;
+  procedure AddCommaStr(var Text: string; Item: string; Ch: string);
 
 implementation
 
@@ -51,5 +52,16 @@ begin
     else
       Result := Result + LowerCase(str[I]);
 end;
+
+procedure AddCommaStr(var Text: string; Item: string; Ch: string);
+begin
+  if (Item = '') then
+    Exit;
+  if (Text = '') then
+    Text := Item
+  else
+    Text := Text + Ch + Item;
+end;
+
 end.
 

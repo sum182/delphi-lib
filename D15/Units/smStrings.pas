@@ -14,7 +14,7 @@ unit smStrings;
 
 interface
 uses
-  Windows, Messages, SysUtils, Variants, Classes;
+  SysUtils, Variants, Classes;
 
   function RemoveAcentos(str: string): string;
   function FirstUpperCase(str: string): string;

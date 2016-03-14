@@ -9,7 +9,7 @@ uses
   MultiDetailAppearanceU, FMX.ListView, FMX.TabControl;
 
 type
-  TForm3 = class(TForm)
+  TfrmTemplate = class(TForm)
     TabControl1: TTabControl;
     TabItem1: TTabItem;
     lstTurmas: TListView;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  Form3: TForm3;
+  frmTemplate: TfrmTemplate;
 
 implementation
 

@@ -3,7 +3,7 @@ object frmBaseForAll: TfrmBaseForAll
   Top = 0
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 320
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

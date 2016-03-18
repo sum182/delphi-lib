@@ -3,14 +3,14 @@ object frmBase: TfrmBase
   Top = 0
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 320
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 3
   object layBase: TLayout
     Align = Client
-    Size.Width = 640.000000000000000000
+    Size.Width = 320.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0

@@ -15,4 +15,20 @@ object frmBase: TfrmBase
     Size.PlatformDefault = False
     TabOrder = 0
   end
+  object fgVirtualKeyboard: TfgVirtualKeyboard
+    Buttons = <
+      item
+        Caption = 'Apple'
+      end
+      item
+        Caption = 'Orange'
+      end
+      item
+        Caption = 'Tomato'
+      end>
+    OnShow = fgVirtualKeyboardShow
+    OnHide = fgVirtualKeyboardHide
+    Left = 560
+    Top = 424
+  end
 end

@@ -11,14 +11,12 @@ uses
 type
   TfrmBase = class(TfrmBaseForAll)
     layBase: TLayout;
-    fgVirtualKeyboard: TfgVirtualKeyboard;
-    procedure fgVirtualKeyboardHide(Sender: TObject; const Bounds: TRect);
-    procedure fgVirtualKeyboardShow(Sender: TObject; const Bounds: TRect);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
+
 
 var
   frmBase: TfrmBase;
@@ -27,22 +25,9 @@ implementation
 
 {$R *.fmx}
 
-procedure TfrmBase.fgVirtualKeyboardHide(Sender: TObject; const Bounds: TRect);
-begin
-  inherited;
-  layBase.Align := TAlignLayout.Client;
-end;
-
-procedure TfrmBase.fgVirtualKeyboardShow(Sender: TObject; const Bounds: TRect);
-begin
-  inherited;
-  layBase.Align := TAlignLayout.Top;
-
-  if BorderStyle <> TFmxFormBorderStyle.None then
-    layBase.Height := Screen.Size.Height - Bounds.Height
-  else
-    layBase.Height := Screen.Size.Height - Bounds.Height - 20;
-end;
+uses smGeralFMX;
 
 end.
+
+
 

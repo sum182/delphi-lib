@@ -24,11 +24,16 @@ uses
   function IsSysOSWindows:Boolean;
   function IsSysOSiOS:Boolean;
   procedure KeyboardHide;
+  function KeyboradShowing:Boolean;
+  procedure KeyboradShow(const AControl: TFmxObject);
+  procedure OnEnterFields(Form: TForm;var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);
+  procedure OnClickFields(Form: TForm);
+
+
   procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
   procedure SetCursor(ACursor: TCursor);
   function ValidarEMail(Email: string): Boolean;
   function SomenteNumero(Valor: String): String;
-  procedure OnEnterFields(Form:TForm;var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);
   function ValidCPF(CPF: string): boolean;
   function GetGUID:string;
 
@@ -68,13 +73,41 @@ procedure KeyboardHide;
 var
   Keyboard: IFMXVirtualKeyboardService;
 begin
-    if TPlatformServices.Current.SupportsPlatformService
-      (IFMXVirtualKeyboardService, Keyboard) then
-    begin
-      Keyboard.HideVirtualKeyboard;
-    end;
+  if not(IsSysOSAndroid) or (IsSysOSiOS) then
+    Exit;
 
+  if TPlatformServices.Current.SupportsPlatformService
+    (IFMXVirtualKeyboardService, Keyboard) then
+  begin
+    Keyboard.HideVirtualKeyboard;
+  end;
 end;
+
+procedure KeyboradShow(const AControl: TFmxObject);
+var
+  Keyboard: IFMXVirtualKeyboardService;
+begin
+  if not(IsSysOSAndroid) or (IsSysOSiOS) then
+    Exit;
+
+  if TPlatformServices.Current.SupportsPlatformService
+    (IFMXVirtualKeyboardService, Keyboard) then
+  begin
+      Keyboard.ShowVirtualKeyboard(AControl);
+  end;
+end;
+
+function KeyboradShowing:Boolean;
+var
+  Keyboard: IFMXVirtualKeyboardService;
+begin
+  if TPlatformServices.Current.SupportsPlatformService
+    (IFMXVirtualKeyboardService, Keyboard) then
+  begin
+    result:= TVirtualKeyBoardState.Visible in Keyboard.GetVirtualKeyBoardState;
+  end;
+end;
+
 
 procedure SetCursorWait(Form:TForm;CursorService: IFMXCursorService);
 begin
@@ -138,6 +171,17 @@ begin
    end;
 end;
 
+procedure OnClickFields(Form: TForm);
+begin
+  if not(IsSysOSAndroid) or (IsSysOSiOS) then
+    Exit;
+
+  if not (KeyboradShowing) then
+  begin
+    KeyboradShow(Form);
+  end;
+end;
+
 function ValidCPF(CPF: string): boolean;
 var
   d1, d4, xx, nCount, resto, digito1, digito2: Integer;
@@ -195,5 +239,10 @@ begin
   CreateGUID(UID);
   Result := Copy(GUIDToString(UID), 2, Length(GUIDToString(UID))-2);
 end;
+
+
+
+
+
 
 end.

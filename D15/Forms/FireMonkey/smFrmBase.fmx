@@ -7,6 +7,9 @@ object frmBase: TfrmBase
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnCloseQuery = FormCloseQuery
+  OnKeyUp = FormKeyUp
   DesignerMasterStyle = 3
   object layBase: TLayout
     Align = Client
@@ -14,21 +17,5 @@ object frmBase: TfrmBase
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-  end
-  object fgVirtualKeyboard: TfgVirtualKeyboard
-    Buttons = <
-      item
-        Caption = 'Apple'
-      end
-      item
-        Caption = 'Orange'
-      end
-      item
-        Caption = 'Tomato'
-      end>
-    OnShow = fgVirtualKeyboardShow
-    OnHide = fgVirtualKeyboardHide
-    Left = 560
-    Top = 424
   end
 end

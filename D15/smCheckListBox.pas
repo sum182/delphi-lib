@@ -50,7 +50,7 @@ procedure Register;
 implementation
 
 uses
-  smGeral;
+  smGeral,smStrings;
 
 procedure Register;
 begin

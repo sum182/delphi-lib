@@ -6,12 +6,13 @@ interface
   function IsConnected: Boolean;
   function IsWifiConnected: Boolean;
   function IsMobileConnected: Boolean;
+  function ValidarConexao: Boolean;
 
 
 implementation
 
 uses
-  NetworkState;
+  NetworkState, smMensagensFMX;
 
 function CurrentSSID: string;
 {$IFDEF ANDROID or IOS}
@@ -42,6 +43,10 @@ begin
   finally
     NS.Free;
   end;
+  {$ENDIF}
+
+  {$IF DEFINED(MSWINDOWS)}
+    Result:= True;
   {$ENDIF}
 end;
 
@@ -75,6 +80,14 @@ begin
     NS.Free;
   end;
   {$ENDIF}
+end;
+
+
+function ValidarConexao: Boolean;
+begin
+  Result:=IsConnected;
+  if not IsConnected then
+    MsgPoupUp('Verifique sua conexão de dados');
 end;
 
 

@@ -445,3 +445,18 @@ Try
 Finally
   ...
 End; 
+
+
+
+Timer
+1 segundo é igual a 1000 milésimos
+
+1000 x 60 = 60000
+
+1 minuto =  a 60000 milésimos!
+2 minuto =  a 60000 milésimos!
+
+60000 x 30 = 1800000
+
+30 minutos é igual a 1800000 milésimos.
+

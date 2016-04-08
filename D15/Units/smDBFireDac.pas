@@ -49,12 +49,18 @@ begin
   if DataSet.State in [dsInactive] then
     DataSet.Active := True;
 
-  with dataset do
-  begin
-    First;
-    while not (eof) do
-      Delete;
+  try
+    DataSet.DisableControls;
+    with dataset do
+    begin
+      First;
+      while not (eof) do
+        Delete;
+    end;
+  finally
+    DataSet.EnableControls;
   end;
+
 end;
 
 
@@ -66,10 +72,18 @@ begin
   if Destino.State in [dsInactive] then
     Destino.Active := True;
 
-  if DeleteDestino then
-    DataSetDelete(Destino);
+  try
+    Origem.DisableControls;
+    Destino.DisableControls;
 
-  Destino.CopyDataSet(Origem, AOptions);
+    if DeleteDestino then
+      DataSetDelete(Destino);
+
+    Destino.CopyDataSet(Origem, AOptions);
+  finally
+    Origem.EnableControls;
+    Destino.EnableControls;
+  end;
 end;
 
 procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);

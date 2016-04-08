@@ -454,7 +454,12 @@ Timer
 1000 x 60 = 60000
 
 1 minuto =  a 60000 milésimos!
-2 minuto =  a 60000 milésimos!
+2 minuto =  a 120000 milésimos!
+
+1hr	= 3600000
+5hr = 18000000
+
+
 
 60000 x 30 = 1800000
 

@@ -195,6 +195,10 @@ O DataSet está aberto. O registro atual pode ser modificado.
 
 dsInsert
 O DataSet está aberto. Um novo registro acaba de ser inserido.
+
+dseditModes
+Estado de edição
+uses data.dbs
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 

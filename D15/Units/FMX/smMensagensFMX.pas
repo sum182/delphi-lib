@@ -33,8 +33,8 @@ begin
   if IsSysOSAndroid then
     TfgToast.Show(Mensagem, TfgToastDuration.Short);
 
-  //if IsSysOSWindows then
-    //ShowMessage(Mensagem);
+  if IsSysOSWindows then
+    ShowMessage(Mensagem);
 
   if IsSysOSiOS then
     ShowMessage(Mensagem);

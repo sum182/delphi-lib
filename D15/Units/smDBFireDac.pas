@@ -137,6 +137,9 @@ begin
   end;
 
   DataSet.First;
+
+  if Result = EmptyStr then
+    Result:= QuoTedStr('0');
 end;
 
 end.

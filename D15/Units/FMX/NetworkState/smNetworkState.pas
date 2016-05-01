@@ -25,7 +25,7 @@ begin
   try
     Result := NS.CurrentSSID;
   finally
-    NS.Free;
+    NS.DisposeOf;
   end;
   {$ENDIF}
 end;
@@ -41,7 +41,7 @@ begin
   try
     Result := NS.IsConnected;
   finally
-    NS.Free;
+    NS.DisposeOf;
   end;
   {$ENDIF}
 
@@ -61,7 +61,7 @@ begin
   try
     Result := NS.IsWifiConnected;
   finally
-    NS.Free;
+    NS.DisposeOf;
   end;
   {$ENDIF}
 end;
@@ -77,7 +77,7 @@ begin
   try
     Result := NS.IsMobileConnected;
   finally
-    NS.Free;
+    NS.DisposeOf;
   end;
   {$ENDIF}
 end;

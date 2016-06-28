@@ -18,7 +18,31 @@ interface
 uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Effects, FMX.Objects, FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, smCrypt, FMX.ListBox,
-  FMX.TabControl,FMX.VirtualKeyboard,FMX.Platform,System.UITypes,System.Classes,System.StrUtils;
+  FMX.TabControl,FMX.VirtualKeyboard,FMX.Platform,System.UITypes,System.Classes,System.StrUtils
+
+
+
+  {$IFDEF ANDROID or IOS}
+   ,
+   FMX.Helpers.Android,
+   Androidapi.JNI.JavaTypes,
+   Androidapi.JNI.GraphicsContentViewText,
+   Androidapi.JNIBridge,
+   Androidapi.JNI.Net,
+   Androidapi.JNI.Os,
+   Androidapi.Helpers,
+   Androidapi.IOUtils,
+   Androidapi.JNI.App,
+   Androidapi.NativeActivity
+  {$ENDIF}
+
+
+  {$IF DEFINED(MSWINDOWS)}
+  ,Winapi.Windows
+  {$ENDIF}
+
+  ;
+
 
   function IsSysOSAndroid:Boolean;
   function IsSysOSWindows:Boolean;
@@ -36,12 +60,15 @@ uses
   function SomenteNumero(Valor: String): String;
   function ValidCPF(CPF: string): boolean;
   function GetGUID:string;
+  function GetVersion: string;
+
+
 
 
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils, System.Types;
 
 
 
@@ -240,6 +267,48 @@ begin
   Result := Copy(GUIDToString(UID), 2, Length(GUIDToString(UID))-2);
 end;
 
+function GetVersion: string;
+{$IF DEFINED(MSWINDOWS)}
+var
+  VerInfoSize: DWORD;
+  VerInfo: Pointer;
+  VerValueSize: DWORD;
+  VerValue: PVSFixedFileInfo;
+  Dummy: DWORD;
+  V1, V2, V3, V4: Word;
+{$ENDIF}
+
+{$IFDEF ANDROID or IOS}
+var
+  PackageManager: JPackageManager;
+  PackageInfo : JPackageInfo;
+{$ENDIF}
+begin
+  {$IF DEFINED(MSWINDOWS)}
+  VerInfoSize := GetFileVersionInfoSize(Pchar(ParamStr(0)), Dummy);
+  GetMem(VerInfo, VerInfoSize);
+  GetFileVersionInfo(Pchar(ParamStr(0)), 0, VerInfoSize, VerInfo);
+  VerQueryValue(VerInfo, '\', Pointer(VerValue), VerValueSize);
+  with VerValue^ do
+  begin
+    V1 := dwFileVersionMS shr 16;
+    V2 := dwFileVersionMS and $FFFF;
+    V3 := dwFileVersionLS shr 16;
+    V4 := dwFileVersionLS and $FFFF;
+  end;
+  FreeMem(VerInfo, VerInfoSize);
+  Result := Copy(IntToStr(100 + v1), 3, 2) + '.' +
+    Copy(IntToStr(100 + v2), 3, 2) + '.' +
+    Copy(IntToStr(100 + v3), 3, 2) + '.' +
+    Copy(IntToStr(100 + v4), 3, 2);
+  {$ENDIF}
+
+  {$IFDEF ANDROID or IOS}
+  PackageManager := SharedActivity.getPackageManager;
+  PackageInfo := PackageManager.getPackageInfo(SharedActivityContext.getPackageName(), TJPackageManager.JavaClass.GET_ACTIVITIES);
+  Result:= JStringToString(PackageInfo.versionName);
+  {$ENDIF}
+end;
 
 
 

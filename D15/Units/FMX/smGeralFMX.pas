@@ -22,7 +22,7 @@ uses
 
 
 
-  {$IFDEF ANDROID or IOS}
+  {$IFDEF ANDROID}
    ,
    FMX.Helpers.Android,
    Androidapi.JNI.JavaTypes,

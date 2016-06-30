@@ -12,7 +12,7 @@ interface
 implementation
 
 uses
-  NetworkState, smMensagensFMX;
+  NetworkState, smMensagensFMX, FMX.Dialogs;
 
 function CurrentSSID: string;
 {$IFDEF ANDROID or IOS}
@@ -87,7 +87,7 @@ function ValidarConexao: Boolean;
 begin
   Result:=IsConnected;
   if not IsConnected then
-    MsgPoupUp('Verifique sua conexão de dados');
+    ShowMessage('Verifique sua conexão de dados');
 end;
 
 

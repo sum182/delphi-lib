@@ -87,7 +87,7 @@ function ValidarConexao: Boolean;
 begin
   Result:=IsConnected;
   if not IsConnected then
-    ShowMessage('Verifique sua conexão de dados');
+    ShowMessage('Verifique sua conexão de internet');
 end;
 
 

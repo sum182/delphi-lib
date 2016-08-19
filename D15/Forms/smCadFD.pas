@@ -446,10 +446,11 @@ var
 begin
   inherited;
   PrepararCondicaoBusca;
-  OpenBuscaSql(' SELECT ' + CamposBusca +
+    OpenBuscaSql(' SELECT ' + CamposBusca +
     ' FROM ' + Tabela  + Joins +
     ' WHERE 1 = 1 ' +
     ' AND ' + CondicaoBusca);
+
   if smCadPadrao.DataSourceBusca.DataSet.IsEmpty then
     Msg('Não foram encontrados dados para esta pesquisa!');
 
@@ -792,7 +793,7 @@ begin
 
   //Concatendo condicoes de buscan
   if (CondicaoBusca <> '') then
-    sql := sql + 'and ' + CondicaoBusca;
+    sql := sql + ' ' + 'and ' + CondicaoBusca;
 
   try
     with smCadPadrao.DataSourceBusca do

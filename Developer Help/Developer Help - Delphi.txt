@@ -469,3 +469,24 @@ Timer
 
 30 minutos é igual a 1800000 milésimos.
 
+
+
+
+
+----CopyDataset----------------------------------------------------------------------------------------------------
+http://docwiki.embarcadero.com/Libraries/Seattle/en/FireDAC.Comp.DataSet.TFDCopyDataSetOptions
+
+coAggregatesCopy	Copia o conjunto de dados fonte agrega configuração para o conjunto de dados atual.
+coAggregatesReset	Repõe a configuração agregados do conjunto de dados atual.
+coAppend	Acrescenta um novo registro para o conjunto de dados atual.
+coCalcFields	Copia os campos calculados a partir do conjunto de dados de origem para o conjunto de dados atual.
+coConstraintsCopy	Cópias a fonte restrições de conjunto de dados de configuração para o conjunto de dados atual.
+coConstraintsReset	Repõe a configuração restrições do conjunto de dados atual.
+coDelete	Se um registro foi excluído do conjunto de dados de origem, localiza o registro correspondente no conjunto de dados atual e exclui-lo.
+coEdit	Localiza o registro correspondente no conjunto de dados atual, usando os valores de campo de chave primária.
+coIndexesCopy	Cópias a fonte índices de conjunto de dados de configuração para o conjunto de dados atual.
+coIndexesReset	Repõe a configuração índices do conjunto de dados atual.
+coRefresh	Atualiza o conjunto de dados atual usando registros do conjunto de dados de origem.
+coRestart	Define o conjunto de dados de origem para o início.
+coStructure	Copia a estrutura do conjunto de dados de origem para o conjunto de dados atual.
+----------------------------------------------------------------------------------------------------------------------

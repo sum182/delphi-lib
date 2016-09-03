@@ -24,7 +24,7 @@ Uses
   procedure CopyDataSet(Origem:TDataset; Destino: TFDDataSet; DeleteDestino: boolean = True; AOptions: TFDCopyDataSetOptions = [coRestart, coAppend]);
   procedure CopyDataSetByRecord(Origem, Destino: TFDDataSet;var Exceptions:String);
   function GetKeyValuesDataSet(DataSet:TDataSet; KeyField:String):String;
-
+  procedure SetFDConnection(DataModule:TDataModule;FDConnection:TFDConnection);
 
 
 implementation
@@ -141,5 +141,17 @@ begin
   if Result = EmptyStr then
     Result:= QuoTedStr('0');
 end;
+
+procedure SetFDConnection(DataModule:TDataModule;FDConnection:TFDConnection);
+var
+  i:Integer;
+begin
+  for i := 0 to DataModule.ComponentCount - 1 do
+  begin
+    if (DataModule.Components[i] is TFDRdbmsDataSet) then
+      (DataModule.Components[i] as TFDRdbmsDataSet).Connection := FDConnection;
+  end;
+end;
+
 
 end.

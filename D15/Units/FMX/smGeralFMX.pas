@@ -48,8 +48,8 @@ uses
   function IsSysOSWindows:Boolean;
   function IsSysOSiOS:Boolean;
   procedure KeyboardHide;
-  function KeyboradShowing:Boolean;
-  procedure KeyboradShow(const AControl: TFmxObject);
+  function KeyboardShowing:Boolean;
+  procedure KeyboardShow(const AControl: TFmxObject);
   procedure OnEnterFields(Form: TForm;var Key: Word; var KeyChar: System.WideChar; Shift: TShiftState);
   procedure OnClickFields(Form: TForm);
 
@@ -110,7 +110,7 @@ begin
   end;
 end;
 
-procedure KeyboradShow(const AControl: TFmxObject);
+procedure KeyboardShow(const AControl: TFmxObject);
 var
   Keyboard: IFMXVirtualKeyboardService;
 begin
@@ -124,7 +124,7 @@ begin
   end;
 end;
 
-function KeyboradShowing:Boolean;
+function KeyboardShowing:Boolean;
 var
   Keyboard: IFMXVirtualKeyboardService;
 begin
@@ -203,9 +203,9 @@ begin
   if not(IsSysOSAndroid) or (IsSysOSiOS) then
     Exit;
 
-  if not (KeyboradShowing) then
+  if not (KeyboardShowing) then
   begin
-    KeyboradShow(Form);
+    KeyboardShow(Form);
   end;
 end;
 

@@ -42,7 +42,7 @@ end;
 procedure TfrmBaseForAll.FormKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if (Key = vkHardwareBack) and (KeyboradShowing) then
+  if (Key = vkHardwareBack) and (KeyboardShowing) then
   begin
     KeyboardHide;
     Key := 0;

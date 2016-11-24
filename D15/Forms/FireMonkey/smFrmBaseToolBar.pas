@@ -38,7 +38,7 @@ procedure TfrmBaseToolBar.FormKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
   inherited;
-  if (Key = vkHardwareBack) and not (KeyboradShowing) then
+  if (Key = vkHardwareBack) and not (KeyboardShowing) then
   begin
     Key := 0;
     btnVoltar.OnClick(self);

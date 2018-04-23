@@ -1,5 +1,7 @@
 
 
+
+
 ----Atalhos------------------------------------------------------------------------------	
 ctrl + shift + a = uses unit
 ctrl + shift + alt + p = atualiza parametros dos métodos
@@ -490,3 +492,60 @@ coRefresh	Atualiza o conjunto de dados atual usando registros do conjunto de dad
 coRestart	Define o conjunto de dados de origem para o início.
 coStructure	Copia a estrutura do conjunto de dados de origem para o conjunto de dados atual.
 ----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Unisolution
+try
+    MostraMensagem('Buscando Dados');
+    try
+      qrPesquisa.Close;
+      qrPesquisa.Open;
+    Except
+      MsgErro := 'Erro na busca dos dados';
+      Raise;
+    end;
+  finally
+    ApagaMensagem;
+  end; 
+  
+exemplo de filtro
+BalFerIntegraALLMonitorFiltro  
+
+
+
+function TfrmPlanejTanque.LPad(S: string; Ch: Char; Len: Integer): string;
+var
+  RestLen: Integer;
+begin   Result  := S;
+  RestLen := Len - Length(s);
+
+  if RestLen < 1 then
+    Exit;
+
+  Result := S + StringOfChar(Ch, RestLen);
+end;
+
+function TfrmPlanejTanque.RPad(S: string; Ch: Char; Len: Integer): string;
+var
+  RestLen: Integer;
+begin   Result  := S;
+  RestLen := Len - Length(s);
+
+  if RestLen < 1 then
+    Exit;
+
+  Result := StringOfChar(Ch, RestLen) + S;
+end;
+

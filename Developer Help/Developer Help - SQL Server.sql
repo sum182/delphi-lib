@@ -89,7 +89,8 @@ where valor = '0'
 
 
 
-
+verificar se uma tabela temporaria existe
+IF OBJECT_ID('TempDB.dbo.#SdLote')IS NULL
 
 
 
@@ -127,3 +128,46 @@ sisversao
 
 select * from SisAtualizacoes
 ----------------------------------------------------------------------------------
+
+
+
+
+--query para inserção entre bases
+insert into [200.150.123.242].Homologacao2.dbo.AllLog (data,rotina,xmlEnv,xmlRet)
+ ((select data,rotina,xmlEnv,xmlRet from [200.150.123.242].CorporateTerminais.dbo.AllLog
+          ))
+          
+          
+          
+----ATUALIZANDO O CAMPO DE AUTORIZACAO    
+UPDATE dbo.ALLLOG   
+SET ALLLOG.Autorizacao = (SUBSTRING(TMP.XmlEnv,CHARINDEX('MessageProtocol',TMP.XmlEnv)+19, 6))
+FROM ALLLOG 
+    INNER JOIN ALLLOG TMP   
+    ON (ALLLOG.Sequencia = TMP.Sequencia)
+
+          
+          
+          
+somente data sem hora
+
+select * from TmpTanqueLiberado
+where MotivoAlt is not null
+and TmpTanqueLiberado.DtOperAlt >= cast(getdate()as date)          
+
+
+
+   update #Retorno
+   set    Situacao = 'Sem Planej'
+   where  Deposito not in( select Deposito
+                           from   TanqueLiberado
+                           where  IsNull( FlagDesCarga, '') = 'S' and
+                                  TanqueLiberado.Material = @Material and
+                                  ( @CodDest = 0 or IsNull( Coddest, 0) = @CodDest)and
+                                  ( @CodEmitente = 0 or IsNull( CodEmitente, 0) = @CodEmitente))
+                                  
+                                  
+declare @Result Char(1)      
+exec CtrVrfTipoOperacaoDifDepositoTeste '20180420 23:59:00', 161, '0250', 'TQ-2105', @Result OutPut      
+select @Result   
+                                  

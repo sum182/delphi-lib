@@ -1,3 +1,9 @@
+Servidores Acesso
+mstsc /v:BTu-DANFE /admin
+
+\\btu-citrix03\Tool\Braspress
+
+
 ----regras especificas - teste----------------------------------------------------
 id clientes
 1225 - banco do brasil
@@ -79,7 +85,7 @@ cnpj
   Action := Cafree;
   form := Nil;
   
-  Abrir query no show
+  Abrir query odsPadrao no show
 ----------------------------------------------------------------------------------------
 
 
@@ -822,3 +828,88 @@ LEFT OUTER JOIN tipo_servico TP ON (TP.id_tipo_servico = GUIAS_GRUPO_LOTE.id_tip
 WHERE 1=1
 
 NAO COLOCAR ALIAS NA TABELA PRINCIPAL
+
+
+***imagens*************************************************************************
+Utilizar o programa Fotosizer para redimensionar
+Splash
+Medidas
+426 X 320
+470 X 320
+640 X 480
+960 X 720
+
+
+Ico
+36 X 36
+48 X 48
+72 X 72
+96 X 96
+144 X 144
+************************************************************************************
+
+FTPs
+
+Coleta Reversa
+ftp://ftp.braspress.com.br
+ftp://ftp.braspress.com.br/coletabosh/retorno/
+
+EDI
+senha: qazwsx
+
+
+
+Integração cotação online
+
+Todos os parametros tem que ser passados via GET separados por virgula, conforme o exemplo abaixo:
+
+http://www.braspress.com.br/cotacaoXml?param=72639040000199,2,07020280,07020280,72639040000199,72639040000199,2,10,50,10,1
+
+
+Descrição de cada parametro.
+
+PARAM - 1 = Cnpj do solicitante.
+PARAM - 2 = ID da empresa de origem
+PARAM - 3 = Cep de origem
+PARAM - 4 = Cep de destino
+PARAM - 5 = Cnpj Remetente
+PARAM - 6 = Cnpj Destinatario
+PARAM - 7 = Id Tipo frente
+PARAM - 8 = Peso;
+PARAM - 9 = Valor da NF;
+PARAM - 10 = Volumes
+PARAM - 11 = Id do tipo modal
+
+
+
+
+
+
+
+
+
+   {$IF CompilerVersion >= 17.0}
+      FormatSettings.DecimalSeparator:= ',';
+    {$ELSE}
+      DecimalSeparator := ',';
+    {$ENDIF}
+
+
+
+erro runtime cds bpl
+Senhores, estava com o mesmo problema, para acessar o componente ClientDataset no delphi xe6, exibia um mensagem de acesso violado ... "dsnap200.bpl', em tempo de desenvolvimento e em tempo de execução.
+
+Tempo de desenvolvimento:
+Na pasta "C:\Program Files\Embarcadero\Studio\14.0\Redist\win32\" existe um arquivo midas.dll. se o path da delphi não for esse localize o arquivo "midas.dll" no sistema, se aparecer varias de preferencia a "midas" existente na instalação do delphi.
+
+Apos localizar o arquivo, copie para a pasta system32 do windows, se existir um arquivo "midas.dll" na pasta system32 renome o arquivo existente (backup).
+
+Depois do arquivo "midas.dll" copiado na system32, devemos registra-la; no executar do windows digite: "regsvr32 /s Midas.Dll" sem as aspas. Feche a IDE do delphi, caso em aberta e inicialize novamente a sua IDE do delphi. Permitindo assim abrir, adicionar field ou criardataset em tempo de desenvolvimento.
+
+
+Tempo de execução:
+
+Basta declarar na uses do projeto a unidade "MidasLib".
+
+
+https://www.devmedia.com.br/forum/erro-ao-vincular-clientdataset-ao-datasetprovider-xe6/498947

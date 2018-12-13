@@ -913,3 +913,8 @@ Basta declarar na uses do projeto a unidade "MidasLib".
 
 
 https://www.devmedia.com.br/forum/erro-ao-vincular-clientdataset-ao-datasetprovider-xe6/498947
+
+
+
+manualdock
+https://stackoverflow.com/questions/21950985/manage-an-dynamic-array-of-forms-inside-a-page-control

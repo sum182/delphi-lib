@@ -918,3 +918,10 @@ https://www.devmedia.com.br/forum/erro-ao-vincular-clientdataset-ao-datasetprovi
 
 manualdock
 https://stackoverflow.com/questions/21950985/manage-an-dynamic-array-of-forms-inside-a-page-control
+
+
+
+firebird sqls
+http://theclub.com.br/Restrito/Revistas/201004/indo1004.aspx
+
+https://gist.github.com/martinusso/8935270

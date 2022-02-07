@@ -1,0 +1,1 @@
+*.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ #*# .#* .*.swp .DS_Store *.~* *.dcu *.exe *.dcp *.ddp *.bpl *.dll *.identcache *.gex *.bak *.local __history *.zip *.?db *.class build/* j2meclasses/* .classpath .project .settings *.war *~ *.lock *.DS_Store *.swp *.out *.bak *.tmp *.log log*.txt .idea .git *.apk __recovery
